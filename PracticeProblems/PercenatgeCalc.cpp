@@ -16,5 +16,12 @@ int main(){
     contributing = monthPay * 0.07;
     std::cout << "\n" << contributing << "\n";
 
+    // Calculates the monthly contribution at ten percent:
+    contributing = monthPay * 0.10;
+    std::cout << "\n" << contributing << "\n";
+
+    // Output the last contribution (10%):
+    std::cout << "\nAt 10% the contribution is: " << contributing << "." << "\n";
+
     return 0;
 }
