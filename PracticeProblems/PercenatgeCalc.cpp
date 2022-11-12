@@ -1,5 +1,9 @@
-// Author: Adrian
-// The program calculates the percentage out of an amount.
+/*
+    PROGRAM: PercenatgeCalc.cpp
+    Written by Adrian
+    This program calculates retirement savings
+    Last modification: 11/12/2022
+*/
 
 #include <iostream>
 
