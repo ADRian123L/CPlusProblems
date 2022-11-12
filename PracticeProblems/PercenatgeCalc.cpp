@@ -11,17 +11,24 @@ int main(){
     
     // Variables to hold the pay:
     double monthPay = 7800.00, contributing;
+    
+    // Constants that hold the percentages:
+    const float 
+        FIVE = 0.05, 
+        SEVEN = 0.07, 
+        TEN = 0.10;
+
 
     // Calculates the monthly contribution at five percent:
-    contributing = monthPay * 0.05;
+    contributing = monthPay * FIVE;
     std::cout << "\n" << contributing << "\n";
 
     // Calculates the monthly contribution at seven percent:
-    contributing = monthPay * 0.07;
+    contributing = monthPay * SEVEN;
     std::cout << "\n" << contributing << "\n";
 
     // Calculates the monthly contribution at ten percent:
-    contributing = monthPay * 0.10;
+    contributing = monthPay * TEN;
     std::cout << "\n" << contributing << "\n";
 
     // Output the last contribution (10%):
