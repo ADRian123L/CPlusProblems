@@ -1,2 +1,2 @@
 # CPlusProblems
-Solved C++ problems.
+Solved C and C++ problems.
