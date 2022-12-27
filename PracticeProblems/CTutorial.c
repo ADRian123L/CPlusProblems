@@ -4,18 +4,38 @@
 
 // The preprocessor:
 #include <stdio.h> // The header file.
-#include <stdlib.h>
+#include <stdlib.h> 
 
-// Variables:
-int number = 78;
-float decimal[] = {67.9, 897, 876, 67};
-char name = 'L';
-char place[] = "USF";
-double big_num = 9799.098778990;
+
 // functions:
+// The function power takes two arguments, x and n.
+int power(int x, int n) 
+{
+    if (n == 0) // If the exponent is 0
+    {
+        return 1; // Return 1
+    }
+    else // If the exponent is a positive number
+    {
+        int y = power(x, n - 1); // Calculate x to the (n-1)th power
+        return x * y; // Return x multiplied by x to the (n-1)th power
+    }
+}
 
-int main(){
+// main function:
+int main(void)
+{   
+    int d, i1, i2, i3, i4, i5;
+    int j1, j2, j3, j4, j5;
+    int first_sum, second_sum, total;
+    printf("Enter the first (single) digit: ");
+    scanf("%1d", &d);
+    printf("Enter the first group of five digits: ");
+    scanf("%1d%1d%1d%1d%1d", &i1, &i2, &i3, &i4, &i5);
+    printf("Enter the second group of five digits: ");
+    scanf("%1d%1d%1d%1d%1d", &j1, &j2, &j3, &j4, &j5);
+    first_sum = d 
+    // Check digit:
 
-    printf("%.2f\n", big_num);
     return 0;
 }
