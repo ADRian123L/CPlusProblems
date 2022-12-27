@@ -34,7 +34,10 @@ int main(void)
     scanf("%1d%1d%1d%1d%1d", &i1, &i2, &i3, &i4, &i5);
     printf("Enter the second group of five digits: ");
     scanf("%1d%1d%1d%1d%1d", &j1, &j2, &j3, &j4, &j5);
-    first_sum = d 
+    first_sum = d + i3 + j1 + j3 + j5;
+    second_sum = i1 + i4 + i5 + j2 + j4;
+    total = 9 - ((3 * first_sum + second_sum) - 1) % 10;
+    printf("Check digit: %d\n", total);
     // Check digit:
 
     return 0;
