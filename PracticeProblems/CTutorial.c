@@ -40,7 +40,8 @@ int main(void)
     printf("Check digit: %d\n", total);
     // Check digit:
 
-    // TODO: You left off at page 58 of the book. Section 4.2
-
+    // TODO: You left off at page 60 of the book. Section 4.2
+    int Y;
+    Y = d = i2;
     return 0;
 }
