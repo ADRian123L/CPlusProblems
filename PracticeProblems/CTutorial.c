@@ -25,5 +25,11 @@ int power(int x, int n)
 // main function:
 int main(void)
 {   
+    // Ask for a base and an exponent
+    printf("Enter a base and an exponent: ");
+    int x, n;
+    scanf("%d %d", &x, &n);
+    // Print the result
+    printf("%d^%d = %d\n", x, n, power(x, n));
     return 0;
 }
