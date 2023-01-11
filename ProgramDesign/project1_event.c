@@ -181,10 +181,10 @@ void copy_list(int lists[], int length, int start) {
 
 // The function calculates the total:
 void calc_total(void) {
-    // Calculate the total cost of the room:
+    // Calculate the total fees:
     Reserve.total = Reserve.info[0] + Reserve.info[1] * (Reserve.hours - 1);
     // Check if the total is greater than the maximum:
     (Reserve.total > Reserve.info[2]) ? (Reserve.total = Reserve.info[2]): (Reserve.total);
-    // Add the cost of the conference room:
+    // Add the cost of each person:
     Reserve.total += Reserve.info[5] * Reserve.people;
 }
