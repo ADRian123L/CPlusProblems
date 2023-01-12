@@ -6,7 +6,7 @@
 */
 
 #include <stdio.h>
-#include <stdlib.h>
+#include <stdlib.h> 
 #include <stdbool.h>
 
 // Array Variables:
@@ -15,7 +15,8 @@ int package_1[6] = {50, 25, 95, 50, 200, 25};
 int package_2[6] = {30, 15, 55, 80, 300, 22};
 int package_3[6] = {20, 12, 40, 30, 150, 20};
 
-// Struct:
+// The Struct stores the package number, hours, people, 
+// the info array, the invalid number of people, and the total:
 struct Info {
     int package,
         hours,
