@@ -151,13 +151,13 @@ void change_info(void) {
     //   to the info array.
     switch (Reserve.package) {
     case 1:
-        copy_list(package_1, 6, 0);
+        copy_list(package_1, 0, 6);
         break;
     case 2:
-        copy_list(package_2, 6, 0);
+        copy_list(package_2, 0, 6);
         break;
     case 3:
-        copy_list(package_3, 6, 0);
+        copy_list(package_3, 0, 6);
         break;
     default:
         break;
@@ -166,17 +166,17 @@ void change_info(void) {
 }
 
 // The function copies an array:
-void copy_list(int lists[], int length, int start) {
+void copy_list(int lists[], int start, int end) {
 
     // check to see if the length is greater than the start
-    if (length > start) {
+    if (end > start) {
         // if it is, then copy the value at the start position
         // into the new array
         Reserve.info[start] = lists[start]; 
         // now call the function again, incrementing the start
         // position by 1
-        copy_list(lists, length, ++start);
-    }
+        copy_list(lists, end, ++start);
+    } 
 
 }
 
