@@ -21,7 +21,7 @@ struct Info {
     int package,
         hours,
         people,
-        info[6],
+        info[6], // 0: base fee, 1: hourly fee, 2: max fee, 3: min people, 4: max people, 5: per person fee
         invalid_num_people,
         total;
 
