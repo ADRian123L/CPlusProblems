@@ -18,7 +18,7 @@ const unsigned short int package_3[6] = {20, 12, 40, 30, 150, 20};
 // The Struct stores the package number, hours, people, 
 // the info array, the invalid number of people, and the total:
 struct Info {
-    int package,
+    short int package,
         hours,
         people,
         info[6], // 0: base fee, 1: hourly fee, 2: max fee, 3: min people, 4: max people, 5: per person fee
@@ -32,12 +32,12 @@ struct Info Reserve;
 
 // Functions:
 void get_info(void);
-int check_package(void);
-int check_hours(void);
-int check_people(void);
+short int check_package(void);
+short int check_hours(void);
+short int check_people(void);
 void calc_total(void);
 void change_info(void);
-void copy_list(const unsigned short int list[], int length, int start);
+void copy_list(const unsigned short int list[], short int length, short int start);
 
 // Main functions:
 int main(void) {
@@ -55,7 +55,7 @@ void get_info(void) {
     // Get the package number:
     printf("Please select from three packages: 1, 2, and 3\n");
     printf("Enter package selection: ");
-    scanf("%d", &Reserve.package);
+    scanf("%hd", &Reserve.package);
     // Check if the number is within range:
     if (!check_package()) {
         printf("Invalid selection. Select from 1 to 3.\n");
@@ -63,7 +63,7 @@ void get_info(void) {
     }
     // Get the hours:
     printf("Enter hours: ");
-    scanf("%d", &Reserve.hours);
+    scanf("%hd", &Reserve.hours);
     // Check if the number is within range:
     if (!check_hours()) {
         printf("Invalid input. Enter a positive number less than or equal to 4 for number of hours.\n");
@@ -71,7 +71,7 @@ void get_info(void) {
     }
     // Get the number of people:
     printf("Enter number of people: ");
-    scanf("%d", &Reserve.people);
+    scanf("%hd", &Reserve.people);
     // Call the change function:
     change_info();
     // Check if the number of people is within range:
@@ -100,9 +100,9 @@ void get_info(void) {
 }
 
 // The function checks if the package is valid:
-int check_package(void) {
+short int check_package(void) {
     // Loop through all possible options
-    for (int i = 0; i < 3; ++i) {
+    for (short int i = 0; i < 3; ++i) {
         // Check if the package matches one of the options
         if (Reserve.package == package_options[i]) {
             // If it does, return 1
@@ -114,7 +114,7 @@ int check_package(void) {
 }
 
 // The function checks if the hours is valid:
-int check_hours(void) {
+short int check_hours(void) {
     // check if hours is greater than 1 and less than 4
     if (Reserve.hours >= 1 && Reserve.hours <= 4) {
         // if so, return 1
@@ -125,7 +125,7 @@ int check_hours(void) {
 }
 
 // The function checks if the people is valid:
-int check_people(void) {
+short int check_people(void) {
     // If the number of people is less than the minimum number of people
     if (Reserve.people < Reserve.info[3]) {
         // Set invalid_num_people to 1
@@ -166,7 +166,7 @@ void change_info(void) {
 }
 
 // The function copies an array:
-void copy_list(const unsigned short int lists[], int start, int end) {
+void copy_list(const unsigned short int lists[], short int start, short int end) {
 
     // check to see if the length is greater than the start
     if (end > start) {
