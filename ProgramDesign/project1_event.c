@@ -10,10 +10,10 @@
 #include <stdbool.h>
 
 // Array Variables:
-int package_options[3] =  {1, 2, 3};
-int package_1[6] = {50, 25, 95, 50, 200, 25};
-int package_2[6] = {30, 15, 55, 80, 300, 22};
-int package_3[6] = {20, 12, 40, 30, 150, 20};
+const unsigned int package_options[3] =  {1, 2, 3};
+const unsigned int package_1[6] = {50, 25, 95, 50, 200, 25};
+const unsigned int package_2[6] = {30, 15, 55, 80, 300, 22};
+const unsigned int package_3[6] = {20, 12, 40, 30, 150, 20};
 
 // The Struct stores the package number, hours, people, 
 // the info array, the invalid number of people, and the total:
@@ -30,14 +30,14 @@ struct Info {
 // Initialize the struct:
 struct Info Reserve;
 
-// Function:
+// Functions:
 void get_info(void);
 int check_package(void);
 int check_hours(void);
 int check_people(void);
 void calc_total(void);
 void change_info(void);
-void copy_list(int list[], int length, int start);
+void copy_list(const unsigned int list[], int length, int start);
 
 // Main functions:
 int main(void) {
@@ -102,7 +102,7 @@ void get_info(void) {
 // The function checks if the package is valid:
 int check_package(void) {
     // Loop through all possible options
-    for (int i = 0; i < 3; i++) {
+    for (int i = 0; i < 3; ++i) {
         // Check if the package matches one of the options
         if (Reserve.package == package_options[i]) {
             // If it does, return 1
@@ -166,7 +166,7 @@ void change_info(void) {
 }
 
 // The function copies an array:
-void copy_list(int lists[], int start, int end) {
+void copy_list(const unsigned int lists[], int start, int end) {
 
     // check to see if the length is greater than the start
     if (end > start) {
@@ -175,7 +175,7 @@ void copy_list(int lists[], int start, int end) {
         Reserve.info[start] = lists[start]; 
         // now call the function again, incrementing the start
         // position by 1
-        copy_list(lists, end, ++start);
+        copy_list(lists, ++start, end);
     } 
 
 }
