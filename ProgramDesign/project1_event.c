@@ -10,10 +10,10 @@
 #include <stdbool.h>
 
 // Array Variables:
-const unsigned int package_options[3] =  {1, 2, 3};
-const unsigned int package_1[6] = {50, 25, 95, 50, 200, 25};
-const unsigned int package_2[6] = {30, 15, 55, 80, 300, 22};
-const unsigned int package_3[6] = {20, 12, 40, 30, 150, 20};
+const unsigned short int package_options[3] =  {1, 2, 3};
+const unsigned short int package_1[6] = {50, 25, 95, 50, 200, 25};
+const unsigned short int package_2[6] = {30, 15, 55, 80, 300, 22};
+const unsigned short int package_3[6] = {20, 12, 40, 30, 150, 20};
 
 // The Struct stores the package number, hours, people, 
 // the info array, the invalid number of people, and the total:
@@ -37,7 +37,7 @@ int check_hours(void);
 int check_people(void);
 void calc_total(void);
 void change_info(void);
-void copy_list(const unsigned int list[], int length, int start);
+void copy_list(const unsigned short int list[], int length, int start);
 
 // Main functions:
 int main(void) {
@@ -166,7 +166,7 @@ void change_info(void) {
 }
 
 // The function copies an array:
-void copy_list(const unsigned int lists[], int start, int end) {
+void copy_list(const unsigned short int lists[], int start, int end) {
 
     // check to see if the length is greater than the start
     if (end > start) {
