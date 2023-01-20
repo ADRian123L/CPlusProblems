@@ -1,7 +1,8 @@
 /*
-    Name: Project1.c
+    Name: project1_event.c
     Purpose: The program calculates the total cost of an event depending 
-             on the package selected and the number of hours and people attending.
+             on the package selected and the number of hours and people 
+            attending.
     Author: Adrian Lozada
 */
 
@@ -21,7 +22,8 @@ struct Info {
     short int package,
         hours,
         people,
-        info[6], // 0: base fee, 1: hourly fee, 2: max fee, 3: min people, 4: max people, 5: per person fee
+        info[6], /* 0: base fee, 1: hourly fee, 2: max fee, 
+                3: min people, 4: max people, 5: per person fee. */
         invalid_num_people,
         total;
 
