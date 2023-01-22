@@ -1,0 +1,43 @@
+#Author: Jing Wang, for Program Design
+# try_project2_encode is a Unix shell script that will be used to test project 2.
+# To use the script, copy it into the same directory as your scource file
+# Set execute permission for the file by issuing the command:
+# chmod +x try_project2_encode
+# Compile your program, producing a.out as the executable
+# To run the script, type 
+# ./try_project2_encode
+# The user input from the script will not be shown on the screen.
+# Compare the results from your program with the expected results on the test cases.
+echo '===================================================='
+./a.out <<-EndOfInput
+hello world!
+EndOfInput
+echo '----------------------------------------------------'
+echo 'Expected:'
+echo 'Enter input:hello world!'
+echo 'nkrrucuxrj_' 
+echo '===================================================='
+./a.out <<-EndOfInput
+6 foxes?
+EndOfInput
+echo '----------------------------------------------------'
+echo 'Expected:'
+echo 'Enter input: 6 foxes?'
+echo '2ludky_'
+echo '===================================================='
+./a.out <<-EndOfInput
+The quick brown fox
+EndOfInput
+echo '----------------------------------------------------'
+echo 'Expected:'
+echo 'Enter input: '
+echo 'Znkwaoiqhxuctlud'
+echo '===================================================='
+./a.out <<-EndOfInput
+$& %?
+EndOfInput
+echo '----------------------------------------------------'
+echo 'Expected:'
+echo 'Enter input: $& %?'
+echo '____'
+echo '===================================================='
