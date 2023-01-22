@@ -1,0 +1,170 @@
+# Written by Jing Wang for Program Design
+# try_project2_travel is a Unix shell script that will be used to test project 2.
+# To use the script, copy it into the same directory as your scource file
+# Set execute permission for the file by issuing the command:
+# chmod +x try_project2_travel
+# Compile your program, producing a.out as the executable
+# To run the script, type 
+# ./try_project2_travel
+# The user input from the script will not be shown on the screen.
+# Compare the results from your program with the expected results on the test cases.
+echo '===================================================='
+./a.out <<-EndOfInput
+3
+7
+4
+4
+4
+4
+7
+EndOfInput
+echo '----------------------------------------------------'
+echo 'Expected:'
+echo 'Case #1: 2 day(s)'
+echo 'Case #2: 1 day(s)'
+echo 'Case #3: 0 day(s)'
+echo '===================================================='
+./a.out <<-EndOfInput
+10
+7
+4
+9
+4
+1
+1
+6
+4
+10
+1
+1
+1
+2
+1
+3
+1
+4
+1
+5
+1
+EndOfInput
+echo '----------------------------------------------------'
+echo 'Expected:'
+echo 'Case #1: 2 day(s)'
+echo 'Case #2: 3 day(s)'
+echo 'Case #3: 1 day(s)'
+echo 'Case #4: 2 day(s)'
+echo 'Case #5: 6 day(s)'
+echo 'Case #6: 1 day(s)'
+echo 'Case #7: 2 day(s)'
+echo 'Case #8: 3 day(s)'
+echo 'Case #9: 4 day(s)'
+echo 'Case #10: 4 day(s)'
+echo '===================================================='
+./a.out <<-EndOfInput
+10
+6
+1
+7
+1
+8
+1
+9
+1
+10
+1
+2
+2
+3
+2
+4
+2
+5
+2
+6
+2
+EndOfInput
+echo '----------------------------------------------------'
+echo 'Expected:'
+echo 'Case #1: 5 day(s)'
+echo 'Case #2: 5 day(s)'
+echo 'Case #3: 6 day(s)'
+echo 'Case #4: 6 day(s)'
+echo 'Case #5: 6 day(s)'
+echo 'Case #6: 1 day(s)'
+echo 'Case #7: 2 day(s)'
+echo 'Case #8: 2 day(s)'
+echo 'Case #9: 3 day(s)'
+echo 'Case #10: 3 day(s)'
+echo '===================================================='
+./a.out <<-EndOfInput
+10
+7
+2
+8
+2
+9
+2
+10
+2
+3
+3
+4
+3
+5
+3
+6
+3
+7
+3
+8
+3
+EndOfInput
+echo '----------------------------------------------------'
+echo 'Expected:'
+echo 'Case #1: 4 day(s)'
+echo 'Case #2: 4 day(s)'
+echo 'Case #3: 4 day(s)'
+echo 'Case #4: 4 day(s)'
+echo 'Case #5: 1 day(s)'
+echo 'Case #6: 1 day(s)'
+echo 'Case #7: 2 day(s)'
+echo 'Case #8: 2 day(s)'
+echo 'Case #9: 3 day(s)'
+echo 'Case #10: 3 day(s)'
+echo '===================================================='
+./a.out <<-EndOfInput
+10
+9
+3
+10
+3
+4
+4
+5
+4
+6
+4
+7
+4
+8
+4
+9
+4
+10
+4
+5
+5
+EndOfInput
+echo '----------------------------------------------------'
+echo 'Expected:'
+echo 'Case #1: 3 day(s)'
+echo 'Case #2: 3 day(s)'
+echo 'Case #3: 1 day(s)'
+echo 'Case #4: 1 day(s)'
+echo 'Case #5: 2 day(s)'
+echo 'Case #6: 2 day(s)'
+echo 'Case #7: 2 day(s)'
+echo 'Case #8: 3 day(s)'
+echo 'Case #9: 3 day(s)'
+echo 'Case #10: 1 day(s)'
+echo '===================================================='
