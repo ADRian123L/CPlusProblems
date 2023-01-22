@@ -9,7 +9,7 @@
 # The user input from the script will not be shown on the screen.
 # Compare the results from your program with the expected results on the test cases.
 echo '===================================================='
-./a.out <<-EndOfInput
+./project2_travel <<-EndOfInput
 3
 7
 4
@@ -24,7 +24,7 @@ echo 'Case #1: 2 day(s)'
 echo 'Case #2: 1 day(s)'
 echo 'Case #3: 0 day(s)'
 echo '===================================================='
-./a.out <<-EndOfInput
+./project2_travel <<-EndOfInput
 10
 7
 4
@@ -60,7 +60,7 @@ echo 'Case #8: 3 day(s)'
 echo 'Case #9: 4 day(s)'
 echo 'Case #10: 4 day(s)'
 echo '===================================================='
-./a.out <<-EndOfInput
+./project2_travel <<-EndOfInput
 10
 6
 1
@@ -96,7 +96,7 @@ echo 'Case #8: 2 day(s)'
 echo 'Case #9: 3 day(s)'
 echo 'Case #10: 3 day(s)'
 echo '===================================================='
-./a.out <<-EndOfInput
+./project2_travel <<-EndOfInput
 10
 7
 2
@@ -132,7 +132,7 @@ echo 'Case #8: 2 day(s)'
 echo 'Case #9: 3 day(s)'
 echo 'Case #10: 3 day(s)'
 echo '===================================================='
-./a.out <<-EndOfInput
+./project2_travel <<-EndOfInput
 10
 9
 3
