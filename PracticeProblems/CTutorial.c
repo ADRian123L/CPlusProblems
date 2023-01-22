@@ -5,7 +5,7 @@
 // The preprocessor:
 #include <stdio.h> // The header file.
 #include <stdlib.h> 
-
+#include <string.h>
 
 // functions:
 // The function power takes two arguments, x and n.
@@ -26,10 +26,14 @@ int power(int x, int n)
 int main(void)
 {   
     // Ask for a base and an exponent
-    printf("Enter a base and an exponent: ");
-    int x, n;
-    scanf("%d %d", &x, &n);
-    // Print the result
-    printf("%d^%d = %d\n", x, n, power(x, n));
+    char n[8];
+    n[0] = 'a';
+    n[1] = 'b';
+    n[2] = 'c';
+    n[3] = 'u';
+    int len = strlen(n);
+    printf("%d\n", len);
+    printf("%s\n", n);
+
     return 0;
 }
