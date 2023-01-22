@@ -7,6 +7,7 @@
 
 #include <stdio.h>
 #include <math.h>
+#include <tgmath.h>
 
 // A macro for the log(3/2):
 #define DENO log10f((float) 3 / 2)  
