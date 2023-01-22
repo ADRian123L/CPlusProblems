@@ -10,7 +10,7 @@
 # Compare the results from your program with the expected results on the test cases.
 
 echo '===================================================='
-project2_encode <<-EndOfInput
+./project2_encode <<-EndOfInput
 hello world!
 EndOfInput
 echo '----------------------------------------------------'
@@ -18,7 +18,7 @@ echo 'Expected:'
 echo 'Enter input:hello world!'
 echo 'nkrrucuxrj_' 
 echo '===================================================='
-project2_encode <<-EndOfInput
+./project2_encode <<-EndOfInput
 6 foxes?
 EndOfInput
 echo '----------------------------------------------------'
@@ -26,7 +26,7 @@ echo 'Expected:'
 echo 'Enter input: 6 foxes?'
 echo '2ludky_'
 echo '===================================================='
-project2_encode <<-EndOfInput
+./project2_encode <<-EndOfInput
 The quick brown fox
 EndOfInput
 echo '----------------------------------------------------'
@@ -34,7 +34,7 @@ echo 'Expected:'
 echo 'Enter input: '
 echo 'Znkwaoiqhxuctlud'
 echo '===================================================='
-project2_encode <<-EndOfInput
+./project2_encode <<-EndOfInput
 $& %?
 EndOfInput
 echo '----------------------------------------------------'
