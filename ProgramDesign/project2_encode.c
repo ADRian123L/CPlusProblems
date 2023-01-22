@@ -93,7 +93,7 @@ char encoder(char num, short type)
 	{
 		case 1:
 
-			changed = ((int) num + ADDER) % DIGIT;
+			changed = ((int) num - ZERO + ADDER) % DIGIT;
 			changed = ((char) changed) + ZERO;			
 			break;
 
