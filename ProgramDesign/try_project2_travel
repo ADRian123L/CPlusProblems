@@ -8,6 +8,7 @@
 # ./try_project2_travel
 # The user input from the script will not be shown on the screen.
 # Compare the results from your program with the expected results on the test cases.
+# Added test cases for project 2
 echo '===================================================='
 ./project2_travel <<-EndOfInput
 3
