@@ -28,6 +28,7 @@ const unsigned short integers[2] = {48, 57},
 // Struct to safe the encoded data:
 struct Data 
 {
+	/// @brief The struct to safe the encoded data.
 	char numbers[1000];
 
 } Inputs;
@@ -49,6 +50,8 @@ int main(void)
 // The function prompts for a integer or a character and returns them encoded:
 void encode(void) 
 {
+	/// @brief The function prompts for a integer or a character and returns them encoded.
+
 	// The variable input is the input:
 	char input;
 	// The loop prompts for a integer or a character:
@@ -79,6 +82,11 @@ void encode(void)
 // The function encodes the input:
 char encoder(char num, short type)
 {
+	/// @brief The function encodes the input.
+	/// @param num The input to be encoded.
+	/// @param type The type of input.
+	/// @return The encoded input.
+	
 	char changed;
 	// The switch encodes the input:
 	switch (type)
@@ -106,7 +114,6 @@ char encoder(char num, short type)
 // The function prints the encoded data:
 void output(void)
 {
-	/// @brief 
-	/// @param  
+	/// @brief The function prints the encoded data.
 	printf("%s", Inputs.numbers);
 }
