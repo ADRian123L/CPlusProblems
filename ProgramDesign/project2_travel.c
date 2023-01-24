@@ -23,6 +23,7 @@ int main (void)
 
 void days(void) 
 {
+	/// @brief The function prompts the user and returns the days.
 	// Prompt for the number of tries:
 	unsigned short cases;
 	printf("Enter the number of cases: ");
