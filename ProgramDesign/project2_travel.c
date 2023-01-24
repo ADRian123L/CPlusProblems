@@ -30,7 +30,7 @@ void days(void)
 	scanf("%hu", &cases);
 	
 	// Runs the number of cases:
-	for (short first, second, days; cases > 0; --cases)
+	for (short first, second, days, count = 1; cases >= count; ++count)
 	{	
 		// Prompt for the initial speed:
 		printf("Speed of A: ");
@@ -42,6 +42,6 @@ void days(void)
 		days = (short) truncf((logf((float) first/second) / DEN) + 1);
 	
 		// Output the result:
-		printf("Case #%hd: %hd day(s)\n", cases, days);
+		printf("Case #%hd: %hd day(s)\n", count, days);
 	}
 }
