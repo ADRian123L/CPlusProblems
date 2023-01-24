@@ -9,7 +9,7 @@
 #include <math.h>
 
 // A macro for the log(3/2):
-#define DENO logf((float) 3 / 2)  
+#define DEN logf((float) 3 / 2)  
 
 // Functions:
 void days(void);
@@ -39,7 +39,7 @@ void days(void)
 		scanf("%hd", &second);
 		
 		// Calculate the days:
-		days = (short) truncf((logf(first/second) / DENO) + 1);
+		days = (short) truncf((logf((float) first/second) / DEN) + 1);
 	
 		// Output the result:
 		printf("Case #%hd: %hd day(s)\n", cases, days);
