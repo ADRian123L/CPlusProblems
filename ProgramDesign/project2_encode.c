@@ -115,5 +115,5 @@ char encoder(char num, short type)
 void output(void)
 {
 	/// @brief The function prints the encoded data.
-	printf("%s", Inputs.numbers);
+	printf("Enter input: %s\n", Inputs.numbers);
 }
