@@ -6,13 +6,15 @@
 */
 
 #include <stdio.h>
-#include <math.h>
 
-// A macro for the log(3/2):
-#define DEN logf((float) 3 / 2)  
+// Macros:
+#define BASE (float) (3.0  / 2.0)
 
 // Functions:
 void days(void);
+int loga(float number, float base);
+float power(float base, int expo);
+
 
 int main (void)
 {
@@ -39,9 +41,35 @@ void days(void)
 		scanf("%hd", &second);
 		
 		// Calculate the days:
-		days = (short) truncf((logf((float) first/second) / DEN) + 1);
+		days = (short) ((loga((float) first/second, BASE)) + 1);
 	
 		// Output the result:
 		printf("Case #%hd: %hd day(s)\n", count, days);
 	}
+}
+
+int loga(float number, float base)
+{	
+	if (number < 1)
+		return -1;
+
+	for (int i = 0;; ++i)
+	{
+		if ((number - power(base, i)) <= 0)
+			return i - 1;
+	}
+}
+
+float power(float base, int expo)
+{
+	float result = 1.0;
+	
+	if (expo == 0)
+		return result;
+
+	for (; expo > 0; --expo)
+	{
+		result *= base;
+	} 
+	return result;
 }
