@@ -50,6 +50,8 @@ void days(void)
 
 int loga(float number, float base)
 {	
+	if (number == 1)
+		return 0;
 	if (number < 1)
 		return -1;
 
