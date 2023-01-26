@@ -28,7 +28,7 @@ void days(void)
 	/// @brief The function prompts the user and returns the days.
 	// Prompt for the number of tries:
 	unsigned short cases;
-	printf("Enter the number of cases: ");
+	printf("Number of cases: ");
 	scanf("%hu", &cases);
 	
 	// Runs the number of cases:
@@ -57,7 +57,7 @@ int loga(float number, float base)
 
 	for (int i = 0;; ++i)
 	{
-		if ((number - power(base, i)) <= 0)
+		if ((number - power(base, i)) < 0)
 			return i - 1;
 	}
 }
