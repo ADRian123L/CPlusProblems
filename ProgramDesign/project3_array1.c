@@ -8,19 +8,10 @@
 #include <stdio.h>
 
 // Function prototypes:
-void prompt(void);
 void check(int length, int list[]);
 
 int main(void)
 { 
-	// Call the driver function:
-	prompt();
-	return 0;
-}
-
-// The function prompts and stores an array of numbers.
-void prompt(void)
-{
 	int length;
 	// Prompts for the length of the array:
 	printf("Enter the length of the input array: ");
@@ -34,6 +25,8 @@ void prompt(void)
 	
 	// Call the check function:
 	check(length, list);
+
+	return 0;
 }
 
 // The functions veryfies if the list of numbers satisfy the requirements.
