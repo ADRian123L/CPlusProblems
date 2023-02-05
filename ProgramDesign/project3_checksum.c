@@ -23,7 +23,7 @@ struct STORAGE
 
 // Function prototypes:
 void prompt(void);
-void check(void);
+void check(unsigned int counter);
 
 int main(void)
 {
@@ -31,7 +31,7 @@ int main(void)
 	INPUT.counter = 0;
 	// Call the functions:
 	prompt();
-	check();
+	check(INPUT.counter);
 	// Output the result:
 	printf("Checksum: %hu\n", INPUT.number[0]);
 	return 0;
@@ -55,20 +55,20 @@ void prompt(void)
 	prompt();
 }
 
-void check(void)
+void check(unsigned int counter)
 {
 	/// @brief The function calculates the checksum recursively.
 
 	// Check if the array is over:
-	if (INPUT.counter <= 1)
+	if (counter <= 1)
 		return;
 	// Add the integers:
-	unsigned short i = (INPUT.counter - 1), number;
+	unsigned short i = (counter - 1), number;
 	if ((number = INPUT.number[i] + INPUT.number[i - 1]) > 9)
 		INPUT.number[i - 1] = (number - 9);
 	else
 		INPUT.number[i - 1] = number;
 	// Call again:
-	--INPUT.counter;
-	check();
+	--counter;
+	check(counter);
 }
