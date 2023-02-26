@@ -6,12 +6,17 @@
 */
 
 #include <stdio.h>
+#include <time.h>
 
 // Functions prototypes:
 int compute_median(int *a, int n);
 
 int main(void)
 {
+    // Speed recorder:
+    clock_t start, end;
+    double cpu_time_used;
+
     int N;
     // Prompt for the length of the array:
     printf("Enter array size: ");
@@ -25,8 +30,12 @@ int main(void)
 
     // Call the compute_median function:
     int median;
+    start = clock();
     median = compute_median(a, N);
-
+    end = clock();
+    cpu_time_used = ((double) (end - start)) / CLOCKS_PER_SEC;
+    printf("Time used: %f\n", cpu_time_used);
+    
     // Find the number of elements that are equal to the median:
     int counter = 0;
     for (int *u = a; u < (a + N - 1); ++u)
