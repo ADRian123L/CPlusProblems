@@ -1,9 +1,48 @@
 #include <stdio.h>
 
+#define N 4
+#define L 2
+
 void find_closest_flight(int, int *, int *);
 
 int main(void)
 {
+    // Initializing variables:
+    char period[N], *j = period, 
+        period_2[N], *u = period_2;
+    int depart[L], arrive[L];
+    int departure, arrival;
+    int time[2], real_time;
+
+    // Prompt for the time:
+    printf("Enter a 24-hour time: ");
+    scanf("%d:%d", &time[0], &time[1]);
+
+    // Convert the inputted time into a single number:
+    real_time = time[0] * 100 + time[1];
+    
+    // Call the find_closest_flight:
+    find_closest_flight(real_time, &departure, &arrival);
+
+    // The determine if the time is after noon:
+    if (departure >= 1200)
+        j = "p.m.";
+    else
+        j = "a.m.";
+    // For arrival:
+    if (arrival >= 1200)
+        u = "p.m.";
+    else
+        u = "a.m.";
+
+    // Convert the departure and arrival times into twelve-hour times:
+    depart[0] = (int) departure / 100;
+    depart[1] = (int ) departure % 100;
+    arrive[0] = (int) arrival / 100;
+    depart[1] = (int ) arrival % 100;
+
+    printf("The closet departure time is %d:%d %s, arriving at %d:%d %s.\n", depart[0], depart[1], j, arrive[0], arrive[1], u);
+    
     return 0;
 }
 
@@ -19,7 +58,7 @@ void find_closest_flight(int desired_time, int *departure_time, int *arrival_tim
 
     for (int *p = &time[0][0], *j = indexes; p < &time[9][0]; ++p)
     {
-        if ((desired_time * 100) >= *p && (desired_time * 100) <= *p +  1)
+        if ((desired_time) >= *p && (desired_time) <= *(p +  1))
         {
             *j = p - &time[0][0] + 1;
             ++j;
