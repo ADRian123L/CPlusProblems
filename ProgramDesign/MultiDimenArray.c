@@ -11,12 +11,12 @@ int main(void)
                            {7, 8, 9},
                            {10, 11, 12}};
 
-    int (*p)[COL] = &array[0];
+    int (*p)[3] = &array[0];
     int index;
 
     for (; p < &array[ROW - 1]; ++p)
     {
-        printf("The first and second elements of the array row %d are: %d and %d.\n", (int) (p - &array[0]), **p, *(*p + 1));
+        printf("The first and second elements of the array row %d are: %d and %d.\n", (int) (p - &array[0]), **p, *(*p + 2));
     }
 
     return 0;

@@ -2,6 +2,8 @@
 
 #define N 4
 #define L 2
+#define ROW 9
+#define COL 2
 
 void find_closest_flight(int, int *, int *);
 
@@ -39,7 +41,7 @@ int main(void)
     depart[0] = (int) departure / 100;
     depart[1] = (int ) departure % 100;
     arrive[0] = (int) arrival / 100;
-    depart[1] = (int ) arrival % 100;
+    arrive[1] = (int ) arrival % 100;
 
     printf("The closet departure time is %d:%d %s, arriving at %d:%d %s.\n", depart[0], depart[1], j, arrive[0], arrive[1], u);
     
@@ -50,23 +52,33 @@ int main(void)
 void find_closest_flight(int desired_time, int *departure_time, int *arrival_time)
 {
     // Flight schedule:
-    int time[][2] = {{800, 1016}, {943, 1152}, {1119, 1331}, 
-                    {1247, 1500}, {1400, 1608}, {1548, 1755}, 
-                    {1900, 2120}, {2145, 2358}, 0};
+    int time[ROW][COL] = {{800, 1016}, 
+                        {943, 1152}, 
+                        {1119, 1331}, 
+                        {1247, 1500}, 
+                        {1400, 1608}, 
+                        {1548, 1755}, 
+                        {1900, 2120}, 
+                        {2145, 2358}, 
+                                   0};
     
-    int indexes[2] = {0};
+    // Save the indexes of the flights:
+    int indexes[2] = {0},
+            *j = indexes;
 
-    for (int *p = &time[0][0], *j = indexes; p < &time[9][0]; ++p)
-    {
-        if ((desired_time) >= *p && (desired_time) <= *(p +  1))
-        {
-            *j = p - &time[0][0] + 1;
-            ++j;
-        }
-    }
+    // Locate the closest departure time:
+    for (int (*p)[COL] = &time[0]; p < &time[ROW - 1]; ++p)
+        if ((desired_time) >= **p && (desired_time) <= *(*p + 1))
+            *j++ = p - &time[0] + 1;
+    
+    // Initializing variables for string the results:
+    int diff_1, 
+        diff_2, 
+        *k = indexes;
 
-    int diff_1, diff_2, *k = indexes;
-
+    printf("The values of indexes are: %d and %d.\n", indexes[0], indexes[1]);
+    
+    // Finding which is the closest departure time:
     diff_1 = time[*k - 1][1] - desired_time;
     diff_2 = time[*(++k) - 1][1] - desired_time;
 
