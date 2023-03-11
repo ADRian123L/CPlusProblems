@@ -1,3 +1,6 @@
+/*
+    The program takes a fraction and reduces it.
+*/
 #include <stdio.h>
 
 void reduce(int numerator, int denominator, int *reduced_numerator, int *reduced_denominator);
