@@ -1,18 +1,23 @@
 // The program uses a function to determine if an element is in the array a.
 #include <stdio.h>
 
+#define L 10
+
 int search(const int a[], int n, int key);
+int string(char *array, int n);
 
 int main(void)
 {
-    int a[3] = {1, 7, 4};
+    char array[L];
+    int length;
+    printf("Enter the string: ");
+    length = string(array, L);
 
-    int bool = search(a, 3, 7);
-
-    printf("The is key is in the array? %d\n", bool);
+    printf("The array has a length of %d and says: \n %s.\n", length, array);
 
     return 0;
 }
+
 
 int search(const int a[], int n, int key)
 {
@@ -28,4 +33,21 @@ int search(const int a[], int n, int key)
     }
 
     return flag;
+}
+
+int string(char *array, int n)
+{
+    int ch, l = 0;
+    char *p = &array[0];
+
+    for (; ((ch = getchar()) != '\n'); ++p, ++l)
+    {
+        if (p >= &array[n - 1])
+            break;
+        *p = ch;
+    }
+    // Assign the last element the null char:
+    *(p) = '\0';
+
+    return l;
 }
