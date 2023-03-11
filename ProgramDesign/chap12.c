@@ -37,6 +37,7 @@ int search(const int a[], int n, int key)
 
 int string(char *array, int n)
 {
+    /// @brief the function prompts for a string and stores it.
     int ch, l = 0;
     char *p = &array[0];
 
