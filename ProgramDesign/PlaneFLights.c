@@ -44,7 +44,7 @@ int main(void)
     arrive[1] = (int ) arrival % 100;
 
     // Output the result:
-    printf("The closet departure time is %d:%d %s, arriving at %d:%d %s.\n", 
+    printf("The closet departure time is %d:%.2d %s, arriving at %d:%.2d %s.\n", 
             depart[0], depart[1], j, arrive[0], arrive[1], u);
     
     return 0;
