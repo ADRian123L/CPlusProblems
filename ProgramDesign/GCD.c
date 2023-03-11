@@ -24,6 +24,12 @@ int main(void)
 
 void reduce(int numerator, int denominator, int *reduced_numerator, int *reduced_denominator)
 {   
+    /// @brief The fuction returns a reduced fraction.
+    /// @param numerator is the numerator of the original function.
+    /// @param denominator is the denominator of the original function.
+    /// @param reduced_numerator is a pointer that stores the reduced numerator.
+    /// @param reduced_denominator is a pointer that stores the reduced denominator.
+    
     // Variables for string the results:
     int gcd, greater, lesser, rem = 1;
 
