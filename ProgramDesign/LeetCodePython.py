@@ -22,4 +22,3 @@ class Solution:
             
         # If there is no pivot return -1:
         return -1 
-    
