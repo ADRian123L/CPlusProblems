@@ -31,8 +31,8 @@ int pivotIndex(int* nums, int numsSize)
     {   
         // Check if the suml is an int:
         suml = ((sum - *p) / 2.0f);
-	if ((suml - (int) suml) != 0.0f)
-		continue;
+	    if ((suml - (int) suml) != 0.0f)
+		    continue;
 
         // Start q at the first element:
         q = &nums[0];
