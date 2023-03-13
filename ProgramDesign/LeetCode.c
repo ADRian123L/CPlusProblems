@@ -23,6 +23,8 @@ int pivotIndex(int* nums, int numsSize)
     {   
         // Start q at the first element:
         q = &nums[0];
+        suml = 0;
+        sumr = 0;
 
         // Find the sum of the left-hand side values:
         if (q == p)
