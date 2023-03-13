@@ -13,11 +13,13 @@ int pivotIndex(int* nums, int numsSize)
 {
     // Check if the array length if less than 1:
     if (numsSize < 1)
-	return -1;
+	    return -1;
+    else if (numsSize == 1)
+	    return 0;
 
     // Initializing some variables to store the data:
-    int flag = 0, sum = 0;
-    int *p, *q;
+    int sum = 0;
+    int *p;
  
     // Get the total sum:
     for (p = &nums[0]; p < &nums[numsSize]; ++p)
@@ -27,36 +29,13 @@ int pivotIndex(int* nums, int numsSize)
     p = &nums[0];
 
     // Search for the pivot:
-    for (float suml; p < &nums[numsSize]; ++p)
+    for (float suml = 0; p < &nums[numsSize]; ++p)
     {   
-        // Check if the suml is an int:
-        suml = ((sum - *p) / 2.0f);
-	    if ((suml - (int) suml) != 0.0f)
-		    continue;
-
-        // Start q at the first element:
-        q = &nums[0];
-        suml = 0.0f;
-
-        // Find the sum of the left-hand side values:
-        while(q < p)
-        {
-            // Take the sum of the elements:
-            suml += *q;
-            ++q;
-        }
-	
-	    if (suml == ((sum - *p) / 2.0f))
-	    {
-	        flag = 1;
-	        break;
-	    }
-
+	// Check if the sum are the same:	
+        if (suml == ((sum - *p) / 2.0f))
+            return (p - nums);
+	// Add p to suml:
+        suml += *p;
     }
-  
-    // Check if there is a pivot:
-    if (flag == 1)
-        return (p - nums);
-    else
-        return -1;
-}
+    return -1;
+}  
