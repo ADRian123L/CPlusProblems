@@ -1,3 +1,4 @@
+# The pivot problem:
 class Solution:
     def pivotIndex(self, nums: list[int]) -> int:
         # Check if the length is less than one:
