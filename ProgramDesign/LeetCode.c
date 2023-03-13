@@ -1,13 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-
-int main(void)
-{
-    return 0;
-}
-
-
 // The function to find the pivot index:
 int pivotIndex(int* nums, int numsSize)
 {
@@ -38,4 +31,32 @@ int pivotIndex(int* nums, int numsSize)
         suml += *p;
     }
     return -1;
+}
+
+int isIsomorphic(char *s, char *t)
+{
+    for (char *p = s, *q = t, tmp; *p; ++p, ++q)
+    { 
+	// Store the value of q:
+    tmp = *q;
+    *q = *p;
+
+	    for (char *i = q + 1; *i; ++i)
+   	        // Check if any letters repeat:
+	        if (*i == tmp)
+		        *i = *p;		
+	    
+    } 
+
+    for (char *p = s, *q = t; *q; ++p, ++q)
+        if (*p != *q)
+	        return 0;
+   
+    return 1;	
 }  
+
+int main(void)
+{
+    return 0;
+}
+
