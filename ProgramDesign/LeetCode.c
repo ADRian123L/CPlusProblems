@@ -35,42 +35,32 @@ int pivotIndex(int* nums, int numsSize)
 
 int isIsomorphic(char *s, char *t)
 {
-    short temp, temp2;
-
-    for (char *p = s, *q = t; *q && *p; ++p, ++q)
+    // Array to store the ascii values:
+    short asci[128] = {0};
+    short asci2[128] = {0};
+    // Loops that check if the string is isomorphic:
+    for (char *p = s, *q = t; *p; ++p, ++q)
     {
-	    temp = *q - *p;
-	
-	    for (char *u = p, *v = q; *u != '\0'; ++u, ++v)
-	    {
-	        if (*u == *p)
-	        {
-		        temp2 = *v - *u;
-		        if (temp != temp2)
-		            return 0;
-	        }
-	    }
-
-        temp = *p - *q;
-	    for (char *u = q, *v = p; *u != '\0'; ++u, ++v)
-	    {
-	        if (*u == *q)
-	        {
-		        temp2 = *v - *u;
-		        if (temp != temp2)
-		            return 0;
-	        }
-	    }
+	    if (asci[*p] != 0 && asci[*p] != *q)
+	        return 0;
+	    asci[*p] = *q;
     }
-
+    // Loops that check if the string is isomorphic:
+    for (char *p = t, *q = s; *p; ++p, ++q)
+    {
+	    if (asci2[*p] != 0 && asci2[*p] != *q)
+	        return 0;
+	    asci2[*p] = *q;
+    }
+    // Return true if the string is isomorphic:
     return 1;
-}  
+}   
 
 
 int main(void)
 {
-    char b[5] = "1223";
-    char a[5] = "3446";
+    char a[5] = "1227";
+    char b[5] = "3448";
     int bol;
     bol = isIsomorphic(a ,b);
 
