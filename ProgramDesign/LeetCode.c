@@ -56,13 +56,34 @@ int isIsomorphic(char *s, char *t)
     return 1;
 }   
 
+int isSubsequence(char * s, char * t)
+{
+    // Check if s is empty set - which is always true:
+    if (!*s)
+	    return 1;
+    // Check if t is empty set - which is always false:
+    if (!*t)
+        return 0;
+    // Loop that checks if s is a subsequence of t:
+    for (; *t; ++t)
+    {
+	    if (*t == *s)
+	        ++s;
+        
+	    if (!*s)
+	        return 1;
+    }
+    // Return false if s is not a subsequence of t:
+    return 0;
+}
+
 
 int main(void)
 {
-    char a[5] = "1227";
-    char b[5] = "3448";
+    char a[] = "124";
+    char b[] = "122222333";
     int bol;
-    bol = isIsomorphic(a ,b);
+    bol = isSubsequence(a ,b);
 
     printf("The value of bool is: %d\n", bol);
     return 0;
