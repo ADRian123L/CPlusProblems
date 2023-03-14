@@ -1,0 +1,1 @@
+printf("u: %c and q: %c\n", *u, *q);

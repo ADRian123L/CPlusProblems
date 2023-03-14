@@ -35,28 +35,46 @@ int pivotIndex(int* nums, int numsSize)
 
 int isIsomorphic(char *s, char *t)
 {
-    for (char *p = s, *q = t, tmp; *p; ++p, ++q)
-    { 
-	// Store the value of q:
-    tmp = *q;
-    *q = *p;
+    short temp, temp2;
 
-	    for (char *i = q + 1; *i; ++i)
-   	        // Check if any letters repeat:
-	        if (*i == tmp)
-		        *i = *p;		
-	    
-    } 
+    for (char *p = s, *q = t; *q && *p; ++p, ++q)
+    {
+	    temp = *q - *p;
+	
+	    for (char *u = p, *v = q; *u != '\0'; ++u, ++v)
+	    {
+	        if (*u == *p)
+	        {
+		        temp2 = *v - *u;
+		        if (temp != temp2)
+		            return 0;
+	        }
+	    }
 
-    for (char *p = s, *q = t; *q; ++p, ++q)
-        if (*p != *q)
-	        return 0;
-   
-    return 1;	
+        temp = *p - *q;
+	    for (char *u = q, *v = p; *u != '\0'; ++u, ++v)
+	    {
+	        if (*u == *q)
+	        {
+		        temp2 = *v - *u;
+		        if (temp != temp2)
+		            return 0;
+	        }
+	    }
+    }
+
+    return 1;
 }  
+
 
 int main(void)
 {
+    char b[5] = "1223";
+    char a[5] = "3446";
+    int bol;
+    bol = isIsomorphic(a ,b);
+
+    printf("The value of bool is: %d\n", bol);
     return 0;
 }
 
