@@ -4,6 +4,9 @@
 // The function to find the pivot index:
 int pivotIndex(int* nums, int numsSize)
 {
+    #define TWO 2.0f
+    #define END_ARRAY (&nums[numsSize])
+    #define START_ARRAY (&nums[0])
     /// @brief: This function finds the pivot index of an array.
     /// @param: nums: The array to find the pivot index.
     /// @param: numsSize: The size of the array.
@@ -18,17 +21,17 @@ int pivotIndex(int* nums, int numsSize)
     int *p;
  
     // Get the total sum:
-    for (p = &nums[0]; p < &nums[numsSize]; ++p)
+    for (p = START_ARRAY; p < END_ARRAY; ++p)
     	sum += *p;
 
     // Setting q and p to point to nums:
-    p = &nums[0];
+    p = START_ARRAY;
 
     // Search for the pivot:
-    for (float suml = 0; p < &nums[numsSize]; ++p)
+    for (float suml = 0; p < END_ARRAY; ++p)
     {   
 	// Check if the sum are the same:	
-        if (suml == ((sum - *p) / 2.0f))
+        if (suml == ((sum - *p) / TWO))
             return (p - nums);
 	// Add p to suml:
         suml += *p;
