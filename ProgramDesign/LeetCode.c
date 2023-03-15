@@ -7,13 +7,17 @@ int pivotIndex(int* nums, int numsSize)
     #define TWO 2.0f
     #define END_ARRAY (&nums[numsSize])
     #define START_ARRAY (&nums[0])
+    #define INDEX_OF_PIVOT (p - nums)
+    #define NO_PIVOT 1
+    #define NO_ELEMENTS (numsSize < 1)
+    #define ONE_ELEMENT (numsSize == 1)
     /// @brief: This function finds the pivot index of an array.
     /// @param: nums: The array to find the pivot index.
     /// @param: numsSize: The size of the array.
     // Check if the array length if less than 1:
-    if (numsSize < 1)
-	    return -1;
-    else if (numsSize == 1)
+    if (NO_ELEMENTS)
+	    return NO_PIVOT;
+    else if (ONE_ELEMENT)
 	    return 0;
 
     // Initializing some variables to store the data:
@@ -32,11 +36,11 @@ int pivotIndex(int* nums, int numsSize)
     {   
 	// Check if the sum are the same:	
         if (suml == ((sum - *p) / TWO))
-            return (p - nums);
+            return INDEX_OF_PIVOT;
 	// Add p to suml:
         suml += *p;
     }
-    return -1;
+    return NO_PIVOT;
 }
 
 int isIsomorphic(char *s, char *t)
