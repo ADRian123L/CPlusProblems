@@ -88,4 +88,3 @@ int main(void)
     printf("The value of bool is: %d\n", bol);
     return 0;
 }
-
