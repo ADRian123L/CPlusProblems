@@ -1,6 +1,8 @@
 # The pivot problem:
 class Solution:
+    """ This is the solution for the pivot problem."""
     def pivotIndex(self, nums: list[int]) -> int:
+        """ This is the function that solves the problem."""
         # Check if the length is less than one:
         if (len(nums) < 1):
             return 0
