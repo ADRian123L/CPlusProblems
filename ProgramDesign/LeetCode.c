@@ -35,6 +35,9 @@ int pivotIndex(int* nums, int numsSize)
 
 int isIsomorphic(char *s, char *t)
 {
+    /// @brief: This function checks if the string s is isomorphic to t.
+    /// @param: s: The string to check if it is isomorphic to t.
+    /// @param: t: The string to check if s is isomorphic to it.
     // Array to store the ascii values:
     short asci[128] = {0};
     short asci2[128] = {0};
