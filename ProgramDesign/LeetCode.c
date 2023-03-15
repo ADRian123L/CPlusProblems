@@ -1,6 +1,9 @@
-#include <stdio.h>
 #include <stdlib.h>
 
+#ifndef stdint_h
+#define stdint_h
+#include <stdint.h>
+#endif
 // The function to find the pivot index:
 int pivotIndex(int* nums, int numsSize)
 {
