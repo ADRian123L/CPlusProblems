@@ -4,6 +4,9 @@
 // The function to find the pivot index:
 int pivotIndex(int* nums, int numsSize)
 {
+    /// @brief: This function finds the pivot index of an array.
+    /// @param: nums: The array to find the pivot index.
+    /// @param: numsSize: The size of the array.
     // Check if the array length if less than 1:
     if (numsSize < 1)
 	    return -1;
