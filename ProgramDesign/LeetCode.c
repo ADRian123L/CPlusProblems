@@ -58,6 +58,9 @@ int isIsomorphic(char *s, char *t)
 
 int isSubsequence(char * s, char * t)
 {
+    /// @brief: This function checks if s is a subsequence of t.
+    /// @param: s: The string to check if it is a subsequence of t.
+    /// @param: t: The string to check if s is a subsequence of it.
     // Check if s is empty set - which is always true:
     if (!*s)
 	    return 1;
