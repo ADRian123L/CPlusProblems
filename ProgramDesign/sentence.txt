@@ -1,0 +1,1 @@
+Hello there, I am writing a text file. I will output the content of this file on the standard output. Moreover, I willuse the fgets function to read the content of the text file./
