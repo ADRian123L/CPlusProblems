@@ -7,7 +7,13 @@
 */
 #include <stdio.h>
 
+void read_csv(char *name, char store[][100]);
+void selection_sort(char array[][], int length);
+void write(char *file_name, char info[][]);
+
 int main(void)
 {
-
+    return 0;
 }
+
+ 
