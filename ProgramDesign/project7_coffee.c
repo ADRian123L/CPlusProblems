@@ -8,6 +8,8 @@
 #include <stdio.h>
 
 #define STR_LN 150
+#define MAX_COFFEE 100
+#define MAX_NAME 100
 
 struct Coffee
 {
@@ -26,14 +28,14 @@ void output_name(char *source, char *out);
 int main(void)
 {
     // Prompt for the name of the file:
-    char name[100];
+    char name[MAX_NAME];
     printf("Enter the file name: ");
     scanf("%s", name);
     // Get the output file's name:
-    char out_name[100];
+    char out_name[MAX_NAME];
     output_name(name, out_name);
     // Initialize structs of coffee:
-    struct Coffee coffee[100];
+    struct Coffee coffee[MAX_COFFEE];
     // Copy the csv's contents into coffee:
     int num_coffees = 0;
     num_coffees = read_csv(name, coffee);
