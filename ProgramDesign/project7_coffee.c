@@ -8,6 +8,7 @@
 #include <stdio.h>
 
 #define STR_LN 150
+
 struct Coffee
 {
     char country[STR_LN + 1];
@@ -19,7 +20,7 @@ struct Coffee
 
 int read_csv(char *name, struct Coffee list[]);
 void selection_sort_coffee(struct Coffee list[], int n);
-void write(char *file_name, struct Coffee list[], int n);
+void writer(char *file_name, struct Coffee list[], int n);
 void output_name(char *source, char *out);
 
 int main(void)
@@ -40,9 +41,9 @@ int main(void)
     if (num_coffees == -1)
 	return 0;
     // Sort the structs:
-    //selection_sort_coffee(coffee, num_coffees);
+    selection_sort_coffee(coffee, num_coffees);
     // Save the sorted info:
-    //write(out_name, coffee); 
+    writer(out_name, coffee, num_coffees); 
     // Print the name of the output file:
     printf("%s", out_name); 
     return 0;
@@ -76,8 +77,34 @@ int read_csv(char *name, struct Coffee list[])
 
 void writer(char *file_name, struct Coffee list[], int n)
 {
-    FILE pFile;
+    // Open the file:
+    FILE *pFile;
     pFile = fopen(file_name, "w");
-   
+    if (pFile ==  NULL)
+        return;
+    // Write the data to the file: 
     for (int i = 0; i < n; ++i)
-        fprint( 
+        fprintf(pFile, "%s,%s,%s,%s,%.2lf\n", list[i].country, list[i].region, list[i].onwner, list[i].variety, list[i].score);
+    fclose(pFile);
+}
+// {1, 3, 2, 5} -> {5, 3, 2, 1} -> {5, 
+void selection_sort_coffee(struct Coffee list[], int n)
+{
+    if (n <= 1)
+        return;
+    int sm = 0;
+    struct Coffee tmp; 
+    
+    for (int i = 0; i < n; ++i)
+        if (list[i].score < list[sm].score)
+	    sm = i;
+
+    if (sm < n - 1)
+    {
+        tmp = list[n - 1];
+        list[n - 1] = list[sm];
+        list[sm] = tmp;
+    }
+
+    selection_sort_coffee(list, n - 1);
+}	 
