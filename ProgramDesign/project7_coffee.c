@@ -13,7 +13,7 @@ struct Coffee
 {
     char country[STR_LN + 1];
     char region[STR_LN + 1];
-    char onwner[STR_LN + 1];
+    char owner[STR_LN + 1];
     char variety[STR_LN + 1];
     double score;
 };
@@ -51,6 +51,10 @@ int main(void)
 
 void output_name(char *source, char *out)
 {
+    /// @brief The function renames the input name by appending it to 'sorted_'.
+    /// @param source is the name of the input file.
+    /// @param out is the address where the modified name will be stored.
+   
     // Copy the 'sorted_' into out:
     char *append = "sorted_";
     for (; *append; ++out, ++append)
@@ -62,6 +66,11 @@ void output_name(char *source, char *out)
 
 int read_csv(char *name, struct Coffee list[])
 {
+    /// @brief The function stores the content of a csv file into a struct array.
+    /// @param name is the input file name.
+    /// @param list is the array of structs.
+    /// @return the number of elements in the array.
+ 
     // Open the file:
     FILE *pFile;
     pFile = fopen(name, "r");
@@ -70,13 +79,18 @@ int read_csv(char *name, struct Coffee list[])
     // Copy the content of the file:
     int i = 0;
     for (; (!feof(pFile)&&!ferror(pFile)); ++i)
-       fscanf(pFile, "%[^,], %[^,], %[^,], %[^,], %lf\n", list[i].country, list[i].region, list[i].onwner, list[i].variety, &list[i].score);
+       fscanf(pFile, "%[^,], %[^,], %[^,], %[^,], %lf\n", list[i].country, list[i].region, list[i].owner, list[i].variety, &list[i].score);
     fclose(pFile);
     return i;
 }
 
 void writer(char *file_name, struct Coffee list[], int n)
 {
+    /// @brief The function writes the content stored in an array of structs.
+    /// @param file_name is the name of where the content will be saved.
+    /// @param list is the array of stuct.
+    /// @param n the number of elements in the array.
+
     // Open the file:
     FILE *pFile;
     pFile = fopen(file_name, "w");
@@ -84,12 +98,16 @@ void writer(char *file_name, struct Coffee list[], int n)
         return;
     // Write the data to the file: 
     for (int i = 0; i < n; ++i)
-        fprintf(pFile, "%s,%s,%s,%s,%.2lf\n", list[i].country, list[i].region, list[i].onwner, list[i].variety, list[i].score);
+        fprintf(pFile, "%s,%s,%s,%s,%.2lf\n", list[i].country, list[i].region, list[i].owner, list[i].variety, list[i].score);
     fclose(pFile);
 }
-// {1, 3, 2, 5} -> {5, 3, 2, 1} -> {5, 
+
 void selection_sort_coffee(struct Coffee list[], int n)
 {
+    /// @brief The function sorts the struct elements from their largest to smallest score.
+    /// @param list is the address of the array of Coffee structs.
+    /// @param n is the number of elements in the array.
+
     if (n <= 1)
         return;
     int sm = 0;
