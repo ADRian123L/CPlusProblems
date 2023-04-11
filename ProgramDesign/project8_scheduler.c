@@ -124,16 +124,16 @@ void help() {
 struct job * add_job(struct job *scheduler, char *job_name, char *user_name, int num_cpus, int num_gpus, int memory, double time, int priority) {
 
 	// Creates a new node:
-	struct job *new_jop = (struct *job) malloc(sizeof(struct job));
+	struct job *new_job = (struct job *) malloc(sizeof(struct job));
 	if (new_job == NULL)
 	{
 		printf("Error: Malloc could not allocate memory");
-		return scheduler:
+		return scheduler;
 	}
 	
 	// Locate the final node in the linked list:
 	struct job *tail = scheduler;
-	for (struct *head = (scheduler -> next); (head != NULL); head = head -> next, tail = tail -> next)
+	for (struct job *head = (scheduler -> next); (head != NULL); head = head -> next, tail = tail -> next)
 		;
 
 	// Change the address stored in next of the last node:
@@ -150,7 +150,9 @@ struct job * add_job(struct job *scheduler, char *job_name, char *user_name, int
 	new_job -> memory = memory;
 	new_job -> time = time;
 	new_job -> priority = priority; 
-		
+	
+	// Return the scheduler:
+	return scheduler;	
 }
 
 struct job * pop_job(struct job *scheduler) {
