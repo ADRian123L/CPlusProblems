@@ -28,6 +28,7 @@ int main()
           break; 
 
 
+    \section{}
         length = strlen(input_buffer);
         sentences[i] = malloc(length+1);
 

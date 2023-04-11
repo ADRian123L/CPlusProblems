@@ -131,16 +131,23 @@ struct job * add_job(struct job *scheduler, char *job_name, char *user_name, int
 		return scheduler;
 	}
 	
-	// Locate the final node in the linked list:
-	struct job *tail = scheduler;
-	for (struct job *head = (scheduler -> next); (head != NULL); head = head -> next, tail = tail -> next)
-		;
+	// Check if the scheduler points to null:
+	if (scheduler == NULL)
+		scheduler = new_job;
+		
+	else
+	{
+		// Locate the final node in the linked list:
+		struct job *tail = scheduler;
+		for (; (tail -> next != NULL); tail = tail -> next)
+			;
+		// Change the address stored in next of the last node:
+		tail -> next = new_job;
+	}
 
-	// Change the address stored in next of the last node:
-        tail -> next = new_job;
 	
 	// Make the next last node point to NULL:
-        new_job -> next = NULL;
+    new_job -> next = NULL;
 
 	// Add all of the information provided to the node:
 	strcpy(new_job -> job_name, job_name);
@@ -157,13 +164,13 @@ struct job * add_job(struct job *scheduler, char *job_name, char *user_name, int
 
 struct job * pop_job(struct job *scheduler) {
 
-	// add code
+	// 
 
 	// output format
 	printf("|----------------------|----------------------|------|------|------|--------|----------|\n");
 	printf("| Job name             | User name            | CPUs | GPUs | Mem. | Time   | Priority |\n");
 	printf("|----------------------|----------------------|------|------|------|--------|----------|\n");
-	printf("| %-20s | %-20s | %4d | %4d | %4d | %6.2f | %8d |\n", "", "", 0, 0, 0, 0, 0);
+	printf("| %-20s | %-20s | %4d | %4d | %4d | %6.2f | %8d |\n", "", "", 0, 0, 0, 0.0, 0);
 	printf("|----------------------|----------------------|------|------|------|--------|----------|\n");
 }
 
@@ -175,9 +182,9 @@ void list_user(struct job *scheduler, char *user_name) {
 	printf("|----------------------|----------------------|------|------|------|--------|----------|\n");
 	printf("| Job name             | User name            | CPUs | GPUs | Mem. | Time   | Priority |\n");
 	printf("|----------------------|----------------------|------|------|------|--------|----------|\n");
-	printf("| %-20s | %-20s | %4d | %4d | %4d | %6.2f | %8d |\n", "", "", 0, 0, 0, 0, 0);
+	printf("| %-20s | %-20s | %4d | %4d | %4d | %6.2f | %8d |\n", "", "", 0, 0, 0, 0.0, 0);
 	printf("|----------------------|----------------------|------|------|------|--------|----------|\n");
-	printf("| %-20s | %-20s | %4d | %4d | %4d | %6.2f | %8d |\n", "", "", 0, 0, 0, 0, 0);
+	printf("| %-20s | %-20s | %4d | %4d | %4d | %6.2f | %8d |\n", "", "", 0, 0, 0, 0.0, 0);
 	printf("|----------------------|----------------------|------|------|------|--------|----------|\n");
 	// ...
 }
@@ -190,9 +197,9 @@ void list_jobs(struct job *scheduler, int num_cpus, int num_gpus, int memory, do
 	printf("|----------------------|----------------------|------|------|------|--------|----------|\n");
 	printf("| Job name             | User name            | CPUs | GPUs | Mem. | Time   | Priority |\n");
 	printf("|----------------------|----------------------|------|------|------|--------|----------|\n");
-	printf("| %-20s | %-20s | %4d | %4d | %4d | %6.2f | %8d |\n", "", "", 0, 0, 0, 0, 0);
+	printf("| %-20s | %-20s | %4d | %4d | %4d | %6.2f | %8d |\n", "", "", 0, 0, 0, 0.0, 0);
 	printf("|----------------------|----------------------|------|------|------|--------|----------|\n");
-	printf("| %-20s | %-20s | %4d | %4d | %4d | %6.2f | %8d |\n", "", "", 0, 0, 0, 0, 0);
+	printf("| %-20s | %-20s | %4d | %4d | %4d | %6.2f | %8d |\n", "", "", 0, 0, 0, 0.0, 0);
 	printf("|----------------------|----------------------|------|------|------|--------|----------|\n");
 	// ...
 }
@@ -205,9 +212,9 @@ void list_all_jobs(struct job *scheduler) {
 	printf("|----------------------|----------------------|------|------|------|--------|----------|\n");
 	printf("| Job name             | User name            | CPUs | GPUs | Mem. | Time   | Priority |\n");
 	printf("|----------------------|----------------------|------|------|------|--------|----------|\n");
-	printf("| %-20s | %-20s | %4d | %4d | %4d | %6.2f | %8d |\n", "", "", 0, 0, 0, 0, 0);
+	printf("| %-20s | %-20s | %4d | %4d | %4d | %6.2f | %8d |\n", "", "", 0, 0, 0, 0.0, 0);
 	printf("|----------------------|----------------------|------|------|------|--------|----------|\n");
-	printf("| %-20s | %-20s | %4d | %4d | %4d | %6.2f | %8d |\n", "", "", 0, 0, 0, 0, 0);
+	printf("| %-20s | %-20s | %4d | %4d | %4d | %6.2f | %8d |\n", "", "", 0, 0, 0, 0.0, 0);
 	printf("|----------------------|----------------------|------|------|------|--------|----------|\n");
 	// ...
 }
