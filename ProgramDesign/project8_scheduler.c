@@ -1,3 +1,8 @@
+/*
+	Purpose: The program implements a simple database, were the user can add, delete, and find jobs.
+	Author: Adrian Lozada
+*/
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -146,8 +151,8 @@ struct job * add_job(struct job *scheduler, char *job_name, char *user_name, int
 	}
 
 	
-	// Make the next last node point to NULL:
-    new_job -> next = NULL;
+	// Make the next last node point to NULL:i
+	new_job -> next = NULL;
 
 	// Add all of the information provided to the node:
 	strcpy(new_job -> job_name, job_name);
@@ -164,64 +169,122 @@ struct job * add_job(struct job *scheduler, char *job_name, char *user_name, int
 
 struct job * pop_job(struct job *scheduler) {
 
-	// 
+	// Checks if there are no nodes:
+	if (scheduler == NULL)
+		return scheduler;
 
 	// output format
 	printf("|----------------------|----------------------|------|------|------|--------|----------|\n");
 	printf("| Job name             | User name            | CPUs | GPUs | Mem. | Time   | Priority |\n");
 	printf("|----------------------|----------------------|------|------|------|--------|----------|\n");
-	printf("| %-20s | %-20s | %4d | %4d | %4d | %6.2f | %8d |\n", "", "", 0, 0, 0, 0.0, 0);
+	printf("| %-20s | %-20s | %4d | %4d | %4d | %6.2f | %8d |\n", scheduler -> job_name, scheduler -> user_name, scheduler -> num_cpus, scheduler -> num_gpus, scheduler -> memory, scheduler -> time, scheduler -> priority);
 	printf("|----------------------|----------------------|------|------|------|--------|----------|\n");
+
+	// Removes the first node from the linked list:
+	struct job *p = scheduler;
+	scheduler = p -> next;
+	free(p); 
+
+	return scheduler;
 }
 
 void list_user(struct job *scheduler, char *user_name) {
 
-	// add code
+	// Check if there are on nodes:
+	if (scheduler == NULL)
+		return;	
+
+	// Check if the user name is in the linked list:
+	struct job *p = scheduler;
+	for (; (p != NULL); p = p -> next)
+		if (strcmp(p -> user_name, user_name) == 0)
+			break;
+	if (p == NULL)
+		return;
 
 	// output format
 	printf("|----------------------|----------------------|------|------|------|--------|----------|\n");
 	printf("| Job name             | User name            | CPUs | GPUs | Mem. | Time   | Priority |\n");
 	printf("|----------------------|----------------------|------|------|------|--------|----------|\n");
-	printf("| %-20s | %-20s | %4d | %4d | %4d | %6.2f | %8d |\n", "", "", 0, 0, 0, 0.0, 0);
-	printf("|----------------------|----------------------|------|------|------|--------|----------|\n");
-	printf("| %-20s | %-20s | %4d | %4d | %4d | %6.2f | %8d |\n", "", "", 0, 0, 0, 0.0, 0);
-	printf("|----------------------|----------------------|------|------|------|--------|----------|\n");
 	// ...
+	// Print out all of the jobs from the user:
+	for (; (scheduler != NULL); scheduler = scheduler -> next)
+	{
+		if ((strcmp(scheduler -> user_name, user_name)) != 0)
+			continue;
+		else
+		{	
+			printf("| %-20s | %-20s | %4d | %4d | %4d | %6.2f | %8d |\n", scheduler -> job_name, scheduler -> user_name, scheduler -> num_cpus, scheduler -> num_gpus, scheduler -> memory, scheduler -> time, scheduler -> priority); 
+		    printf("|----------------------|----------------------|------|------|------|--------|----------|\n");
+		}	
+	}
 }
 
 void list_jobs(struct job *scheduler, int num_cpus, int num_gpus, int memory, double time) {
 
-	// add code
+	// Check if there are no nodes:
+	if (scheduler == NULL)
+		return;
+
+	// Check if the jobs exist:
+	struct job *p = scheduler;
+	for (; (p != NULL); p = p -> next)
+		if (p -> num_cpus == num_cpus && p -> num_gpus == num_gpus && p -> memory == memory && p -> time == time)
+			break;
+	
+	if (p == NULL)
+		return;
 
 	// output format
 	printf("|----------------------|----------------------|------|------|------|--------|----------|\n");
 	printf("| Job name             | User name            | CPUs | GPUs | Mem. | Time   | Priority |\n");
 	printf("|----------------------|----------------------|------|------|------|--------|----------|\n");
-	printf("| %-20s | %-20s | %4d | %4d | %4d | %6.2f | %8d |\n", "", "", 0, 0, 0, 0.0, 0);
-	printf("|----------------------|----------------------|------|------|------|--------|----------|\n");
-	printf("| %-20s | %-20s | %4d | %4d | %4d | %6.2f | %8d |\n", "", "", 0, 0, 0, 0.0, 0);
-	printf("|----------------------|----------------------|------|------|------|--------|----------|\n");
-	// ...
+
+	// Print out all of the nodes that match the description: 
+	for (; (scheduler != NULL); scheduler = scheduler -> next)
+	{
+		if (scheduler -> num_gpus != num_gpus || scheduler -> num_cpus != num_cpus || scheduler -> memory != memory || scheduler -> time != time)
+			continue;
+		else
+		{
+			printf("| %-20s | %-20s | %4d | %4d | %4d | %6.2f | %8d |\n", scheduler -> job_name, scheduler -> user_name, scheduler -> num_cpus, scheduler -> num_gpus, scheduler -> memory, scheduler -> time, scheduler -> priority);
+			printf("|----------------------|----------------------|------|------|------|--------|----------|\n");
+		}
+	}
 }
 
 void list_all_jobs(struct job *scheduler) {
 
-	// add code
+	// Check if there are no nodes:
+	if (scheduler == NULL)
+		return;
 
 	// output format
 	printf("|----------------------|----------------------|------|------|------|--------|----------|\n");
 	printf("| Job name             | User name            | CPUs | GPUs | Mem. | Time   | Priority |\n");
 	printf("|----------------------|----------------------|------|------|------|--------|----------|\n");
-	printf("| %-20s | %-20s | %4d | %4d | %4d | %6.2f | %8d |\n", "", "", 0, 0, 0, 0.0, 0);
-	printf("|----------------------|----------------------|------|------|------|--------|----------|\n");
-	printf("| %-20s | %-20s | %4d | %4d | %4d | %6.2f | %8d |\n", "", "", 0, 0, 0, 0.0, 0);
-	printf("|----------------------|----------------------|------|------|------|--------|----------|\n");
-	// ...
+	for (;(scheduler != NULL); scheduler = scheduler -> next)
+	{
+        printf("| %-20s | %-20s | %4d | %4d | %4d | %6.2f | %8d |\n", scheduler -> job_name , scheduler -> user_name, scheduler -> num_cpus, scheduler -> num_gpus, scheduler -> memory, scheduler -> time, scheduler -> priority);
+        printf("|----------------------|----------------------|------|------|------|--------|----------|\n");
+	}		
 }
 
 struct job * clear_jobs(struct job *scheduler) {
 
-	// add code
+	// Check if there are no nodes:
+	if (scheduler == NULL)
+		return scheduler;
+	
+	// Remove all jobs:
+	for (struct job *p = scheduler -> next; (p != NULL); scheduler = p, p = p -> next)
+		free(scheduler);
+	
+	// Check that all are deleted:
+	if (scheduler != NULL)
+		free(scheduler);
 
+	// Set scheduler to null:
+	scheduler = NULL;
+	return scheduler;
 }
-
