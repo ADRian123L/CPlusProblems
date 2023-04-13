@@ -127,6 +127,7 @@ void help() {
 /////////////////////////////////////////////////////////
 
 struct job * add_job(struct job *scheduler, char *job_name, char *user_name, int num_cpus, int num_gpus, int memory, double time, int priority) {
+	/// @brief the function creates a node and adds it to the linked list.
 
 	// Creates a new node:
 	struct job *new_job = (struct job *) malloc(sizeof(struct job));
@@ -169,6 +170,8 @@ struct job * add_job(struct job *scheduler, char *job_name, char *user_name, int
 
 struct job * pop_job(struct job *scheduler) {
 
+	/// @brief the function removes the first node from the linked list.
+
 	// Checks if there are no nodes:
 	if (scheduler == NULL)
 		return scheduler;
@@ -189,6 +192,8 @@ struct job * pop_job(struct job *scheduler) {
 }
 
 void list_user(struct job *scheduler, char *user_name) {
+
+	/// @brief the function prompts for a user name and returns all of the jobs using that user name.
 
 	// Check if there are on nodes:
 	if (scheduler == NULL)
@@ -222,6 +227,8 @@ void list_user(struct job *scheduler, char *user_name) {
 
 void list_jobs(struct job *scheduler, int num_cpus, int num_gpus, int memory, double time) {
 
+	/// @brief the function prompts for some information and returns all of the jobs that satisfy the requirements.
+	
 	// Check if there are no nodes:
 	if (scheduler == NULL)
 		return;
@@ -255,6 +262,8 @@ void list_jobs(struct job *scheduler, int num_cpus, int num_gpus, int memory, do
 
 void list_all_jobs(struct job *scheduler) {
 
+	/// @brief the function list all of the jobs stored in the linked list.
+
 	// Check if there are no nodes:
 	if (scheduler == NULL)
 		return;
@@ -271,6 +280,8 @@ void list_all_jobs(struct job *scheduler) {
 }
 
 struct job * clear_jobs(struct job *scheduler) {
+
+	/// @brief the function removes all jobs from the linked list.
 
 	// Check if there are no nodes:
 	if (scheduler == NULL)
