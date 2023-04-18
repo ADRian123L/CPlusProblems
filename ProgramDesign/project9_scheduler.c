@@ -146,14 +146,14 @@ struct job * add_job(struct job *scheduler, char *job_name, char *user_name, int
 	else
 	{
 		// Locate the intended node in the linked list:
-		struct job *tail = scheduler;
-		struct job *head = scheduler -> next;
-		for (; (head != NULL) && (tail -> priority > priority); tail = tail -> next, head = head -> next)
+		struct job *tail;
+		struct job *head = scheduler;
+		for (; (head != NULL) && (head -> priority >= priority); tail = head, head = head -> next)
 			;
 		// Change the address stored in next of the last node:
-		if (tail == scheduler)
+		if (head == scheduler)
 		{
-			new_job -> next = scheduler;
+			new_job -> next = head;
 			scheduler = new_job;
 		}
 		else
