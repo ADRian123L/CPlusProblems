@@ -6,6 +6,7 @@
     Author: Adrian Lozada
 */
 #include <stdio.h>
+#include <stdlib.h>
 
 #define STR_LN 150
 #define MAX_COFFEE 100
@@ -20,8 +21,8 @@ struct Coffee
     double score;
 };
 
+int comparison(const void *p, const void *q);
 int read_csv(char *name, struct Coffee list[]);
-void selection_sort_coffee(struct Coffee list[], int n);
 void writer(char *file_name, struct Coffee list[], int n);
 void output_name(char *source, char *out);
 
@@ -43,7 +44,7 @@ int main(void)
     if (num_coffees == -1)
 	return 0;
     // Sort the structs:
-    selection_sort_coffee(coffee, num_coffees);
+    qsort(coffee, num_coffees, sizeof(struct Coffee), comparison);
     // Save the sorted info:
     writer(out_name, coffee, num_coffees); 
     // Print the name of the output file:
@@ -104,27 +105,12 @@ void writer(char *file_name, struct Coffee list[], int n)
     fclose(pFile);
 }
 
-void selection_sort_coffee(struct Coffee list[], int n)
+int comparison(const void *p, const void *q)
 {
-    /// @brief The function sorts the struct elements from their largest to smallest score.
-    /// @param list is the address of the array of Coffee structs.
-    /// @param n is the number of elements in the array.
-
-    if (n <= 1)
-        return;
-    int sm = 0;
-    struct Coffee tmp; 
-    
-    for (int i = 0; i < n; ++i)
-        if (list[i].score < list[sm].score)
-	    sm = i;
-
-    if (sm < n - 1)
-    {
-        tmp = list[n - 1];
-        list[n - 1] = list[sm];
-        list[sm] = tmp;
-    }
-
-    selection_sort_coffee(list, n - 1);
-}	 
+	if (((struct Coffee *) p) -> score > ((struct Coffee *) q) -> score)
+		return 1;
+	else if (((struct Coffee *) p) -> score == ((struct Coffee *) q) -> score)
+		return 0;
+	else
+		return -1;
+}	
